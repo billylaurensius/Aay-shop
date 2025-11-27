@@ -1,0 +1,193 @@
+/* GENERAL STYLE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #0d0d2b, #000) fixed;
+    color: white;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(20,20,40,0.6);
+    backdrop-filter: blur(10px);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 900;
+    border-bottom: 1px solid #ffffff22;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 700;
+    color: #50aaff;
+    text-shadow: 0 0 8px #3399ff;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #d9eaff;
+    font-weight: 500;
+    padding: 8px 14px;
+    transition: 0.3s;
+}
+
+nav a.active,
+nav a:hover {
+    background: rgba(80, 170, 255, 0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px #3399ff;
+}
+
+/* MAIN */
+main {
+    padding: 130px 40px 40px;
+}
+
+/* SECTION */
+section {
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 70px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid #ffffff22;
+    box-shadow: 0 0 25px #00aaff44;
+}
+
+.hero button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #00aaff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.hero button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px #33ccff;
+}
+
+/* TITLE */
+.title {
+    font-size: 28px;
+    margin: 20px 0;
+    text-shadow: 0 0 8px #66ccff;
+}
+
+/* PRODUK GRID */
+.produk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid #ffffff22;
+    border-radius: 18px;
+    padding: 15px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px #00c6ff44;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px #00eaff;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.harga {
+    margin: 8px 0;
+    font-weight: bold;
+    color: #5cd3ff;
+}
+
+.card button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #008cff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.card button:hover {
+    background: #00aaff;
+    transform: scale(1.05);
+}
+
+/* PROMO */
+.promo-card {
+    padding: 30px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid #55d4ff;
+    box-shadow: 0 0 25px #33bbff55;
+}
+
+.promo-list {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* KERANJANG */
+#list li {
+    background: rgba(255,255,255,0.08);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border-left: 4px solid #33ccff;
+}
+
+.checkout {
+    padding: 12px 20px;
+    background: #00ffcc;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background: rgba(255,255,255,0.05);
+    border-top: 1px solid #ffffff22;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aay Shop</title>
+    <link rel="stylesheet" href="css quiz.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">  Aay Shop</div>
+
+        <nav>
+            <a href="#" class="active" onclick="show('beranda', this)">Beranda</a>
+            <a href="#" onclick="show('produk', this)">Produk</a>
+            <a href="#" onclick="show('promo', this)">Promo</a>
+            <a href="#" onclick="show('keranjang', this)">Keranjang</a>
+            <a href="#" onclick="show('tentang', this)">Tentang</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- BERANDA -->
+        <section id="beranda" class="active">
+            <div class="hero">
+                <h1>Belanja Masa Depan Dimulai di AayShop ✨</h1>
+                <p>Marketplace futuristik dengan tampilan neon, efek kaca, dan pengalaman belanja premium.</p>
+                <button onclick="show('produk', document.querySelector('nav a:nth-child(2)'))">
+                    Jelajahi Produk
+                </button>
+            </div>
+        </section>
+
+        <!-- PRODUK -->
+        <section id="produk">
+            <h2 class="title">Produk Unggulan</h2>
+
+            <div class="produk-grid">
+
+                <div class="card">
+                    <img src="hp">
+                    <h3>Smartphone Z-Pro</h3>
+                    <p class="harga">Rp 3.200.000</p>
+                    <button onclick="add('Smartphone Z-Pro', 3200000)">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="card">
+                    <img src="ultrabook">
+                    <h3>UltraBook X12</h3>
+                    <p class="harga">Rp 8.500.000</p>
+                    <button onclick="add('UltraBook X12', 8500000)">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="card">
+                    <img src="headphone">
+                    <h3>Headphone BassBoost</h3>
+                    <p class="harga">Rp 650.000</p>
+                    <button onclick="add('Headphone BassBoost', 650000)">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="card">
+                    <img src="case">
+                    <h3>Case Smartphone Gaming</h3>
+                    <p class="harga">Rp 280.000</p>
+                    <button onclick="add('Case Smartphone Gaming', 280000)">Tambah ke Keranjang</button>
+                </div>
+
+                <div class="card">
+                    <img src="casan">
+                    <h3>Charger Smartphone Gaming</h3>
+                    <p class="harga">Rp 350.000</p>
+                    <button onclick="add('Charger Smartphone Gaming', 350000)">Tambah ke Keranjang</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROMO -->
+        <section id="promo">
+            <h2 class="title">Promo Futuristik Hari Ini 💠</h2>
+
+            <div class="promo-card">
+                <h3>Flash Sale 70% OFF</h3>
+                <p>Diskon besar hanya hari ini!</p>
+            </div>
+
+            <ul class="promo-list">
+                <li>💎 Cashback 25%</li>
+                <li>🚀 Pengiriman Hyper-Express Gratis</li>
+                <li>🎁 Mystery Gift untuk pembelian > Rp1.000.000</li>
+            </ul>
+        </section>
+
+        <!-- KERANJANG -->
+        <section id="keranjang">
+            <h2 class="title">Keranjang Belanja</h2>
+
+            <ul id="list"></ul>
+
+            <h3>Total: Rp <span id="total">0</span></h3>
+
+            <button class="checkout" onclick="checkout()">Checkout</button>
+        </section>
+
+        <!-- TENTANG -->
+        <section id="tentang">
+            <h2 class="title">Tentang AayShop</h2>
+            <p>AayShop menggabungkan teknologi masa depan dengan desain neon aesthetic 
+               dan efek kaca modern. Memberikan pengalaman belanja yang premium dan berbeda dari marketplace biasa.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 AayShop - E-commerse</p>
+    </footer>
+
+    <script>
+
+        function show(id, el) {
+            document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+            document.getElementById(id).classList.add("active");
+
+            document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+            el.classList.add("active");
+        }
+
+        let cart = [];
+        let sum = 0;
+
+        function add(name, price) {
+            cart.push({ name, price });
+            sum += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const ul = document.getElementById("list");
+            ul.innerHTML = "";
+
+            cart.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - Rp ${item.price.toLocaleString()}`;
+                ul.appendChild(li);
+            });
+
+            document.getElementById("total").textContent = sum.toLocaleString();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Keranjang kosong!");
+            } else {
+                alert("Pesanan berhasil! Terima kasih telah berbelanja di NeoShop.");
+            }
+        }
+
+    </script>
+
+</body>
+</html>
